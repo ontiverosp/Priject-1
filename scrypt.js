@@ -8,3 +8,6 @@
     //pictures
 //create detailed results
     //take account of all info were getting and displaying it properly
+
+
+//github conflict`
