@@ -11,12 +11,20 @@ var beers;
 
     for (var i = 0; i < drinks.length; i++) {
     var drink = drinks[i]
+<<<<<<< HEAD
     if (input == drink) {
+=======
+    if (imput == drink) {
+>>>>>>> master
         //display infromation and images
     }
     for (var i = 0; i < beers.length; i++) {
         var beer = beers[i]
+<<<<<<< HEAD
         if (input == beer) {
+=======
+        if (imput == beer) {
+>>>>>>> master
            //display infromation and images
         }
 

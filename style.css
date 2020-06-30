@@ -1,0 +1,63 @@
+.Homepage {
+    background-color: rgb(27, 26, 26);
+}
+
+.navbar:not(.is_stuck) {
+    position: fixed;
+        left: 0;
+        right: 0;
+    background-color: transparent;
+    }
+
+.bi-cup-straw {
+    color: whitesmoke;
+}
+
+.IngredientSelect {
+    color: whitesmoke;
+}
+.navbar-brand {
+    color: whitesmoke;
+    font-family: sans-serif;
+}
+
+.headertext {
+    color: whitesmoke;
+    max-width: min-content;
+    left: 15vw;
+}
+
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url("https://www.simplyrecipes.com/wp-content/uploads/2020/01/Old-Fashioned-Cocktail-LEAD-5.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.form-control {
+    background-color: transparent;
+    border-color: transparent transparent whitesmoke;
+    width: 50vw;
+    color: whitesmoke;
+
+}
+
+.searchbar {
+    background-color: transparent;
+    border-color: transparent transparent whitesmoke;
+    width: 50vw;
+}
+
+.bi-arrow-right-short {
+    color: whitesmoke;
+    border-color: transparent;
+}
+
+.btn {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.jumbotron {
+    height: 70vh;
+}
