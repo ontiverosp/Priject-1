@@ -11,13 +11,13 @@ var beers;
 
     for (var i = 0; i < drinks.length; i++) {
     var drink = drinks[i]
-    if (imput == drink) {
-        //do stuff
+    if (input == drink) {
+        //display infromation and images
     }
     for (var i = 0; i < beers.length; i++) {
         var beer = beers[i]
-        if (imput == beer) {
-            //do stuff
+        if (input == beer) {
+           //display infromation and images
         }
 
 inputEl.on("click", function () {
