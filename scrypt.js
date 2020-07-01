@@ -11,12 +11,12 @@ var beers;
 
     for (var i = 0; i < drinks.length; i++) {
     var drink = drinks[i]
-    if (imput == drink) {
+    if (input == drink) {
         //do stuff
     }
     for (var i = 0; i < beers.length; i++) {
         var beer = beers[i]
-        if (imput == beer) {
+        if (input == beer) {
             //do stuff
         }
 
@@ -33,7 +33,8 @@ inputEl.keypress(function (event) {
         localStorage.setItem(key, value)
     }
 
-})
+});
+
 
 //Create result cards
     //card body
@@ -41,3 +42,5 @@ inputEl.keypress(function (event) {
     //pictures
 //create detailed results
     //take account of all info were getting and displaying it properly
+
+}}
