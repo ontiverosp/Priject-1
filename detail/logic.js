@@ -56,7 +56,7 @@ var testObject = {
 localStorage.setItem("info", JSON.stringify(testObject));
 
 //makes sure only one type of search term is passed on
-function clearTerms(){
+function clearTerms() {
     localStorage.removeItem("termI");
     localStorage.removeItem("termA");
     localStorage.removeItem("termS");
@@ -90,7 +90,7 @@ $("#searchSomething").on("click", function () {
 });
 
 //displays the info.
-function detailedInfo(){
+function detailedInfo() {
     //Get the info I need from local storage
     var info = JSON.parse(localStorage.getItem('info'));
     var name = info.strDrink;
@@ -102,28 +102,64 @@ function detailedInfo(){
     var category = info.strCategory;
     var ingredients = [];
     var measurements = [];
-    for (i=1;i<16;i++){
-        var ingredient = eval('info.strIngredient'+i);
-       if (ingredient != null){
-        ingredients.push(ingredient);
-       }
+    for (i = 1; i < 16; i++) {
+        var ingredient = eval('info.strIngredient' + i);
+        if (ingredient != null) {
+            ingredients.push(ingredient);
+        }
     }
-    for (i=1;i<16;i++){
-        var measurement = eval('info.strMeasure'+i);
-       if (measurement != null){
-        measurements.push(measurement);
-       }
+    for (i = 1; i < 16; i++) {
+        var measurement = eval('info.strMeasure' + i);
+        if (measurement != null) {
+            measurements.push(measurement);
+        }
     }
-    console.log(name);
-    console.log(instructions);
-    console.log(ingredients);
-    console.log(measurements);
-    console.log(alcoholic);
-    console.log(glass);
-    console.log(classification);
-    console.log(category);
-    //create the html elements and put in the info
-    
+    //create the html elements
+    var infoEL = $("<div>");
+    infoEL.attr("class", "infoBox");
+    var nameEL = $("<h2>");
+    nameEL.attr("class", "name");
+    var instructionsEL = $("<p>");
+    instructionsEL.attr("class", "instructions");
+    var alcoholicEL = $("<p>");
+    alcoholicEL.attr("class", "alcoholic");
+    var glassEL = $("<p>");
+    glassEL.attr("class", "glass");
+    var classificationEL = $("<p>");
+    classificationEL.attr("class", "classification");
+    var categoryEL = $("<p>");
+    categoryEL.attr("class", "category");
+    var imgEL = $("<img>");
+    //add content to element
+    nameEL.text(name);
+    instructionsEL.text(instructions);
+    alcoholicEL.text(alcoholic);
+    glassEL.text(glass);
+    classificationEL.text(classification);
+    categoryEL.text(category);
+    imgEL.attr("src", img);
+    //append to infoBox
+    infoEL.append(nameEL);
+    infoEL.append(imgEL);
+    infoEL.append(instructionsEL);
+    infoEL.append(alcoholicEL);
+    infoEL.append(glassEL);
+    infoEL.append(classificationEL);
+    infoEL.append(categoryEL); 
+    //for ingredients and measurments its running in a for loop in the append section
+    for (i = 0; i < ingredients.length; i++) {
+        var ingredientsEL = $("<p>");
+        ingredientsEL.attr("class", "ingredients");
+        ingredientsEL.text(ingredients[i]);
+        infoEL.append(ingredientsEL);
+    }
+    for (i = 0; i < measurements.length; i++) {
+        var measurementsEL = $("<p>");
+        measurementsEL.attr("class", "measurements");
+        measurementsEL.text(measurements[i]);
+        infoEL.append(measurementsEL);
+    }
+    $("body").append(infoEL);
 }
 
 
