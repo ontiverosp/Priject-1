@@ -4,11 +4,12 @@
 
 /* NavBar */
 .navbar:not(.is_stuck) {
-    position: fixed;
+    position: absolute;
         left: 0;
         right: 0;
     background-color: transparent;
     padding-bottom: 10px;
+    z-index: 10;
     }
 
 .bi-cup-straw {
@@ -102,3 +103,17 @@
   color: black;
   text-align: center;
 }
+
+/* Start Details page_________________________________________*/
+
+
+/* Carousel______________________________________________*/
+
+.carousel-inner {
+    max-height: 70vh;
+}
+
+.carousel-item {
+    max-height: 70vh;
+}
+    
