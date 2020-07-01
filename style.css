@@ -2,11 +2,14 @@
     background-color: rgb(27, 26, 26);
 }
 
+/* NavBar */
 .navbar:not(.is_stuck) {
-    position: fixed;
+    position: absolute;
         left: 0;
         right: 0;
     background-color: transparent;
+    padding-bottom: 10px;
+    z-index: 10;
     }
 
 .bi-cup-straw {
@@ -21,10 +24,17 @@
     font-family: sans-serif;
 }
 
+/* Header Text and Jumbotron */
 .headertext {
     color: whitesmoke;
     max-width: min-content;
     left: 15vw;
+    padding-bottom: 5px;
+}
+
+.jumbotron {
+    height: 70vh;
+    overflow: none;
 }
 
 .hero-image {
@@ -34,6 +44,7 @@
     background-size: cover;
 }
 
+/* Form boxes */
 .form-control {
     background-color: transparent;
     border-color: transparent transparent whitesmoke;
@@ -42,10 +53,12 @@
 
 }
 
-.searchbar {
+/* Search bar */
+
+.input-group {
     background-color: transparent;
     border-color: transparent transparent whitesmoke;
-    width: 50vw;
+    width: 75vw;
 }
 
 .bi-arrow-right-short {
@@ -58,6 +71,49 @@
     border-color: transparent;
 }
 
-.jumbotron {
-    height: 70vh;
+/* Card Section */
+
+.cardSection {
+   position: relative;
+   /* display: inline-block; */
+   left: 10vw;
 }
+
+.card {
+    color: whitesmoke;
+    background-color: transparent;
+    background-color: none;
+    padding-top: 20px;
+}
+
+.card-body {
+    text-align: start;
+    margin: auto;
+    padding: 50px
+}
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-height: 15px;
+  background-color: black;
+  color: black;
+  text-align: center;
+}
+
+/* Start Details page_________________________________________*/
+
+
+/* Carousel______________________________________________*/
+
+.carousel-inner {
+    max-height: 70vh;
+}
+
+.carousel-item {
+    max-height: 70vh;
+}
+    
