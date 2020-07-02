@@ -64,8 +64,8 @@ function clearTerms() {
 }
 
 //sends you back to the home page and runs new search
-$("#searchIngridient").on("click", function () {
-    var term = $("#termIngridient").val();
+$("#searchIngredient").on("click", function () {
+    var term = $("#termIngredient").val();
     console.log(term);
     window.location.href = "../index.html";
     clearTerms();
