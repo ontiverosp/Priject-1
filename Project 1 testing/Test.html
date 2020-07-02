@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="searchTest.js"></script>
+</head>
+
+<body>
+    <SearchBar class="input-group mb-3">
+        <input type="text" class="form-control" id="searchBar" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default">
+        <svg class="btn btn-primary btn-md" href="#" type="submit" width="3em" height="3em" viewBox="0 0 16 16"
+            class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M8.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.793 8 8.146 5.354a.5.5 0 0 1 0-.708z" />
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5H11a.5.5 0 0 1 0 1H4.5A.5.5 0 0 1 4 8z" />
+        </svg>
+    </SearchBar>
+    <section class="cardSection" style="display:none">;
+        <div class="card mb-3" style="max-width: 800px;">
+            <div class="row no-gutters wholeCard">
+                <div class="col-md-4">
+                    <img src="https://content.api.news/v3/images/bin/2f9f6f3a45a976d3808a0a4d31ba6716" class="card-img"
+                        alt="cocktail">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">Drink Recipe</h3>
+                        <p class="card-text"><small class="text-muted">Drinks ingredients?</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="results"></div>
+</body>
+
+</html>
