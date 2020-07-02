@@ -64,8 +64,8 @@ function clearTerms() {
 }
 
 //sends you back to the home page and runs new search
-$("#searchIngridient").on("click", function () {
-    var term = $("#termIngridient").val();
+$("#searchIngredient").on("click", function () {
+    var term = $("#termIngredient").val();
     console.log(term);
     window.location.href = "../index.html";
     clearTerms();
@@ -121,31 +121,52 @@ function detailedInfo() {
     nameEL.attr("class", "name");
     var instructionsEL = $("<p>");
     instructionsEL.attr("class", "instructions");
-    var alcoholicEL = $("<p>");
-    alcoholicEL.attr("class", "alcoholic");
+    // var alcoholicEL = $("<p>");
+    // alcoholicEL.attr("class", "alcoholic");
     var glassEL = $("<p>");
     glassEL.attr("class", "glass");
-    var classificationEL = $("<p>");
-    classificationEL.attr("class", "classification");
-    var categoryEL = $("<p>");
-    categoryEL.attr("class", "category");
+    // var classificationEL = $("<p>");
+    // classificationEL.attr("class", "classification");
+    // var categoryEL = $("<p>");
+    // categoryEL.attr("class", "category");
     var imgEL = $("<img>");
+    var instructionsTitle = $("<h3>");
+    instructionsTitle.attr("class", "instsubtitle");
+    var ingredientsTitle = $("<h6>");
+    ingredientsTitle.attr("class", "subtitle");
+    var measurementsTitle = $("<h6>");
+    measurementsTitle.attr("class", "subtitle");
+    var glassTitle = $("<h6>");
+    glassTitle.attr("class", "subtitle");
+
+    
+
     //add content to element
     nameEL.text(name);
     instructionsEL.text(instructions);
-    alcoholicEL.text(alcoholic);
+    // alcoholicEL.text(alcoholic);
     glassEL.text(glass);
-    classificationEL.text(classification);
-    categoryEL.text(category);
+    // classificationEL.text(classification);
+    // categoryEL.text(category);
     imgEL.attr("src", img);
+    imgEL.attr("class", "drinkImage");
+    instructionsTitle.text("Instructions");
+    ingredientsTitle.text("Ingredients");
+    measurementsTitle.text("Measurements");
+    glassTitle.text("Glass to use");
+
+
     //append to infoBox
     infoEL.append(nameEL);
     infoEL.append(imgEL);
-    infoEL.append(instructionsEL);
-    infoEL.append(alcoholicEL);
+    // infoEL.append(alcoholicEL);
+    infoEL.append(glassTitle);
     infoEL.append(glassEL);
-    infoEL.append(classificationEL);
-    infoEL.append(categoryEL); 
+    // infoEL.append(classificationEL);
+    // infoEL.append(categoryEL); 
+    infoEL.append(ingredientsTitle);
+    
+
     //for ingredients and measurments its running in a for loop in the append section
     for (i = 0; i < ingredients.length; i++) {
         var ingredientsEL = $("<p>");
@@ -153,6 +174,8 @@ function detailedInfo() {
         ingredientsEL.text(ingredients[i]);
         infoEL.append(ingredientsEL);
     }
+    infoEL.append(measurementsTitle);
+
     for (i = 0; i < measurements.length; i++) {
         var measurementsEL = $("<p>");
         measurementsEL.attr("class", "measurements");
@@ -160,6 +183,8 @@ function detailedInfo() {
         infoEL.append(measurementsEL);
     }
     $("body").append(infoEL);
+    infoEL.append(instructionsTitle);
+    infoEL.append(instructionsEL);
 }
 
 

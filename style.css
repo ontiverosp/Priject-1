@@ -117,4 +117,59 @@
 .carousel-item {
     max-height: 70vh;
 }
+
+/* Drink Details page */
+
+.infoBox {
+    padding: 15vh 15vw;
+    max-width: 100vw;
+    margin: 0 auto;
+    background-color:whitesmoke;
+}
+
+.drinkImage {
+    display: flex;
+    float: left;
+    width: 30vw;
+    /* height: 40vh; */
+    object-fit: contain;
+    padding: 20px 0px 40px 0px;
+    margin: 0;
+    border-radius: 20px;
+    zoom: 1;
+}
+
+.glass {
+    padding-left: 50%;
+}
+.measurements,
+.ingredients {
+    padding-left: 50%;
+}
+
+.instructions {
+    margin: 5px;
+}
+
+.subtitle {
+    padding-top: 1rem;
+    padding-left: 50%;
+}
+
+
+.instsubtitle {
+    margin-top: 15vh;
+}
+
+/* drinkImage  */
+/* .infoBox
+.name
+.instructions
+.ingredients
+.measurements
+
+measurementsTitle
+ingredientsTitle
+instructionsTitle
+glassTitle
     
