@@ -2,38 +2,15 @@ $(document).ready(function () {
     var searchInput;
     var searchUrl;
     var inputEl = $("input");
-    var inputclick = $(".btn-primary");
     var tnUrl;
     var resEl = $(".cardSection");
     var thumb;
     var drinkNm;
 
-    function startLoaded(){
-        var searchFlag = localStorage.getItem('searchFlag');
-        var term = localStorage.getItem('term');
-        
-        
-        if(searchFlag == 'true'){
-            searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + term;
-            search()
-            console.log(term);
-        }
 
 
-        localStorage.setItem("searchFlag", false);
-    }
 
 
-    inputclick.on('click', function (event) {
-            // console.log(this)
-            searchInput = $(this).val();
-            // console.log(searchInput)
-            searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchInput;
-            // console.log(searchUrl)
-            search()
-
-        
-    });
 
     inputEl.keypress(function (event) {
         if (event.originalEvent.keyCode === 13) {
@@ -103,9 +80,8 @@ $(document).ready(function () {
             info.forEach((element) => {
                 if (id == element.idDrink) {
                     clearInfo()
-                    
                     localStorage.setItem("info", JSON.stringify(element));
-                    window.location.href = "detail/detail.html";
+                    window.location.href = "../detail/detail.html";
                 }
             })
 
@@ -339,7 +315,7 @@ function beerList(chosenStyle) {
                 if (beerID == element.id) {
                     clearInfo();
                     localStorage.setItem("infoB", JSON.stringify(element));
-                    window.location.href = "detail/detail.html";
+                    window.location.href = "../detail/detail.html";
                 }
             })
 
@@ -350,6 +326,6 @@ function beerList(chosenStyle) {
 
 
 searchCreate();
-startLoaded();
+
 
 });

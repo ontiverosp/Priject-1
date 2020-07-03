@@ -57,9 +57,7 @@
 
 //makes sure only one type of search term is passed on
 function clearTerms() {
-    localStorage.removeItem("termI");
-    localStorage.removeItem("termA");
-    localStorage.removeItem("termS");
+    localStorage.removeItem("term");
     return;
 }
 
@@ -69,7 +67,7 @@ $("#searchIngredient").on("click", function () {
     console.log(term);
     window.location.href = "../index.html";
     clearTerms();
-    localStorage.setItem("termI", term);
+    localStorage.setItem("term", term);
     localStorage.setItem("searchFlag", true);
 });
 $("#searchAlcohol").on("click", function () {
@@ -77,7 +75,7 @@ $("#searchAlcohol").on("click", function () {
     console.log(term);
     window.location.href = "../index.html";
     clearTerms();
-    localStorage.setItem("termA", term);
+    localStorage.setItem("term", term);
     localStorage.setItem("searchFlag", true);
 });
 $("#searchSomething").on("click", function () {
@@ -85,7 +83,7 @@ $("#searchSomething").on("click", function () {
     console.log(term);
     window.location.href = "../index.html";
     clearTerms();
-    localStorage.setItem("termS", term);
+    localStorage.setItem("term", term);
     localStorage.setItem("searchFlag", true);
 });
 
