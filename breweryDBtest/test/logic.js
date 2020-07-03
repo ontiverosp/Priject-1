@@ -1,7 +1,8 @@
 function beerInfo() {
-    //Get the info I need from local storage
+    //Get the info needed from local storage
     var info = JSON.parse(localStorage.getItem('infoB'));
     var name = info.name;
+    //not all beers have all the info available so making sure we have a back up comment.
     var description = info.description;
     if (typeof description == 'undefined') {
         description = 'No description available'
@@ -51,7 +52,7 @@ function beerInfo() {
     infoEl.append(ibuEl);
     infoEl.append(imgEl);
     infoEl.append(descriptionEl);
-    //apend info box to body 
+    //append info box to body 
     $('body').append(infoEl);
 }
 beerInfo();
