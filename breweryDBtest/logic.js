@@ -3,7 +3,9 @@ function beer() {
 
     //the two content boxes stuff gets appended into
     var optionsEL = $("<div>");
-    optionsEL.attr("class", "optionsBox");
+    optionsEL.attr("class", "filterBox");
+    var optionsSecondaryEL = $("<div>");
+    optionsSecondaryEL.attr("class", "filterBox");
     var contentEL = $("<div>");
     contentEL.attr("class", "contentBox");
 
@@ -69,16 +71,19 @@ function beer() {
         else if (typeChosen === 'mixed') {
             categoryID = 11;
             stlyleList(categoryID);
+            optionsSecondaryEL.empty();
             return;
         }
         else if (typeChosen === 'mead') {
             categoryID = 12;
             stlyleList(categoryID);
+            optionsSecondaryEL.empty();
             return;
         }
         else if (typeChosen === 'int') {
             categoryID = 10;
             stlyleList(categoryID);
+            optionsSecondaryEL.empty();
             return;
         }
         else if (typeChosen === 'other') {
@@ -96,8 +101,8 @@ function beer() {
             method: "GET",
         }).then(function (response) {
             var categoriesData = response.data;
-            optionsEL.empty();
-
+            optionsSecondaryEL.empty();
+            contentEL.empty();
             //goes through all categories and makes a list off all that still meet search filter criteria
             categoryID.forEach((element) => {
                 var num = element;
@@ -107,10 +112,11 @@ function beer() {
                         categoryEL.attr("id", element.id);
                         categoryEL.attr("class", "category");
                         categoryEL.text(element.name);
-                        optionsEL.append(categoryEL);
+                        optionsSecondaryEL.append(categoryEL);
                     }
                 })
             })
+            $('body').append(optionsSecondaryEL)
             $('.category').on('click', function (event) {
                 event.preventDefault();
                 stlyleList(event.target.id);
