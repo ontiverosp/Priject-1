@@ -222,7 +222,7 @@ function beerList(chosenStyle) {
                 if (beerID == element.id) {
                     clearInfo();
                     localStorage.setItem("infoB", JSON.stringify(element));
-                    window.location.href = "test/result-beer.html";
+                    window.location.href = "../detail/detail.html";
                 }
             })
 
