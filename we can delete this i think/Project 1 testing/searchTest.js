@@ -7,20 +7,7 @@ $(document).ready(function () {
     var thumb;
     var drinkNm;
 
-    function startLoaded(){
-        var searchFlag = localStorage.getItem('searchFlag');
-        var term = localStorage.getItem('term');
-        
-        
-        if(searchFlag == 'true'){
-            searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + term;
-            search()
-            console.log(term);
-        }
 
-
-        localStorage.setItem("searchFlag", false);
-    }
 
 
 
@@ -93,9 +80,8 @@ $(document).ready(function () {
             info.forEach((element) => {
                 if (id == element.idDrink) {
                     clearInfo()
-                    
                     localStorage.setItem("info", JSON.stringify(element));
-                    window.location.href = "detail/detail.html";
+                    window.location.href = "../detail/detail.html";
                 }
             })
 
@@ -329,7 +315,7 @@ function beerList(chosenStyle) {
                 if (beerID == element.id) {
                     clearInfo();
                     localStorage.setItem("infoB", JSON.stringify(element));
-                    window.location.href = "detail/detail.html";
+                    window.location.href = "../detail/detail.html";
                 }
             })
 
@@ -340,6 +326,6 @@ function beerList(chosenStyle) {
 
 
 searchCreate();
-startLoaded();
+
 
 });
