@@ -3,15 +3,10 @@ $(document).ready(function () {
     var searchUrl;
     var inputEl = $("input");
     var tnUrl;
-    var resEl = $(".cardSection");
+    var resEl = $(".resluts");
+    console.log(resEL)
     var thumb;
     var drinkNm;
-
-
-
-
-
-
     inputEl.keypress(function (event) {
         if (event.originalEvent.keyCode === 13) {
             // console.log(this)
@@ -20,10 +15,8 @@ $(document).ready(function () {
             searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchInput;
             // console.log(searchUrl)
             search()
-
         }
     });
-
     function search() {
         $.ajax({
             url: searchUrl,
@@ -33,29 +26,16 @@ $(document).ready(function () {
             // console.log(cocktails);
             resEl.empty();
             if (cocktails == null) {
-                // console.log("No results found for " + searchInput + ".")
             }
-
             for (i = 0; i < cocktails.length; i++) {
                 var cocktail = cocktails[i];
-                // console.log(cocktail.strDrink);
                 drinkNm = cocktail.strDrink;
                 tnUrl = cocktail.strDrinkThumb;
-
-                // console.log(tnUrl)
-
                 genRes(cocktail.idDrink)
-                
             }
                 toResult(cocktails);
         })
     }
-    // function genRes(){
-    //     var tnEl = $("<img>");        
-    //     thumb = tnEl.attr("src",tnUrl);        
-    //     resEl.append(thumb)
-    // }
-
     function genRes(id) {
         // var ingredient = [];
         var crdNmEl = $("<p>");
@@ -67,9 +47,8 @@ $(document).ready(function () {
         crdNmEl.text(drinkNm);
         crdImgEl.attr("src", tnUrl);
         resEl.append(crdNmEl).append(crdImgEl);
-
-
     }
+
 
     function toResult(info) {
 
@@ -145,7 +124,7 @@ function searchCreate() {
     optionsEL.append(otherEL);
 
     //append options box to body or desired container*************************************
-    $("body").append(optionsEL);
+    $(".resluts").append(optionsEL);
 
     typeToCategory()
 }
@@ -225,7 +204,7 @@ function typeToCategory() {
                 })
             })
             //append the second filter box to body or desired container*************************************
-            $('body').append(optionsSecondaryEL)
+            $('.resluts').append(optionsSecondaryEL)
             //listens for choice and sends to styles
             $('.category').on('click', function (event) {
                 event.preventDefault();
@@ -263,7 +242,7 @@ function stlyleList(chosenStyle) {
             }
         })
         //append the content box to body or desired container************************************* 
-        $("body").append(contentEL);
+        $(".resluts").append(contentEL);
         //listens for click and sends to beer list of chosen style
         $('.style').on('click', function (event) {
             event.preventDefault();
@@ -307,19 +286,19 @@ function beerList(chosenStyle) {
             })
         }
 
-        //listens for click on beer and sends info of beer and the user to info page
-        $('.beer').on('click', function (event) {
-            event.preventDefault();
-            var beerID = event.target.id;
-            response.data.forEach((element) => {
-                if (beerID == element.id) {
-                    clearInfo();
-                    localStorage.setItem("infoB", JSON.stringify(element));
-                    window.location.href = "../detail/detail.html";
-                }
-            })
+        // //listens for click on beer and sends info of beer and the user to info page
+        // $('.beer').on('click', function (event) {
+        //     event.preventDefault();
+        //     var beerID = event.target.id;
+        //     response.data.forEach((element) => {
+        //         if (beerID == element.id) {
+        //             clearInfo();
+        //             localStorage.setItem("infoB", JSON.stringify(element));
+        //             window.location.href = "../detail/detail.html";
+        //         }
+        //     })
 
-        });
+        // });
 
     });
 }
