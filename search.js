@@ -2,6 +2,7 @@ $(document).ready(function () {
     var searchInput;
     var searchUrl;
     var inputEl = $("input");
+    var inputclick = $(".btn-primary");
     var tnUrl;
     var resEl = $(".cardSection");
     var thumb;
@@ -23,7 +24,16 @@ $(document).ready(function () {
     }
 
 
+    inputclick.on('click', function (event) {
+            // console.log(this)
+            searchInput = $(this).val();
+            // console.log(searchInput)
+            searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchInput;
+            // console.log(searchUrl)
+            search()
 
+        
+    });
 
     inputEl.keypress(function (event) {
         if (event.originalEvent.keyCode === 13) {
