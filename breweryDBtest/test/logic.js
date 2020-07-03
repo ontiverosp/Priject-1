@@ -5,20 +5,20 @@ function beerInfo() {
     //not all beers have all the info available so making sure we have a back up comment.
     var description = info.description;
     if (typeof description == 'undefined') {
-        description = 'No description available'
+        description = 'No description available';
     }
     var abv = info.abv;
     if (typeof abv == 'undefined') {
-        abv = 'No ABV available'
+        abv = 'No ABV available';
     }
     var ibu = info.ibu;
     if (typeof ibu == 'undefined') {
-        ibu = 'No IBU available'
+        ibu = 'No IBU available';
     }
     var imgLink;
     var labels = info.labels;
     if (typeof labels !== 'undefined') {
-        imgLink = labels.medium
+        imgLink = labels.large;
     }
     else {
         imgLink = 'http://clipart-library.com/images/kcKByEL6i.png';
