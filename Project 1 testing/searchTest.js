@@ -5,8 +5,12 @@ $(document).ready(function () {
     var tnUrl;
     var resEl = $(".results");
     var thumb;
+    var drinkNm;
     
-    
+
+
+
+
 
     inputEl.keypress(function (event) {
         if (event.originalEvent.keyCode === 13) {
@@ -16,7 +20,7 @@ $(document).ready(function () {
             searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchInput;
             console.log(searchUrl)
             search()
-            
+
         }
     });
 
@@ -30,28 +34,49 @@ $(document).ready(function () {
             if (cocktails == null) {
                 console.log("No results found for " + searchInput + ".")
             }
-
+            
             for (i = 0; i < cocktails.length; i++) {
                 var cocktail = cocktails[i];
-                var drinkName = cocktail.strDrink;                
-                console.log(cocktail.strDrink);
-                tnUrl = cocktail.strDrinkThumb;
-                console.log(tnUrl)
                 
+                // for (i = 1; i < 16; i++) {
+                //     var ingredients = [];
+                //     var ingredient = eval('cocktail.strIngredient' + i);
+                //     if (ingredient != null) {
+                //         ingredients.push(ingredient);
+                //     }
+                // }
+                       
+                console.log(cocktail.strDrink);
+                drinkNm = cocktail.strDrink;
+                tnUrl = cocktail.strDrinkThumb;
+                
+                console.log(tnUrl)
+
                 genRes()
             }
-            
+
         })
     }
-    function genRes(){
-        var cardTitle = $(".card-title");
-        var cartText = $(".card-text");
-        var cardImg = $(".card-image");
-        var card = $(".cardSection");
-        card.attr("style","display:block");    
-        cardImg.attr("src",tnUrl);
-        cardTitle.text(drinkName);        
-        resEl.append(card);
+    // function genRes(){
+    //     var tnEl = $("<img>");        
+    //     thumb = tnEl.attr("src",tnUrl);        
+    //     resEl.append(thumb)
+    // }
+
+    function genRes() {
+        var ingredient = [];
+        var crdNmEl = $("<p>");
+        var crdImgEl = $("<img>");
+       crdNmEl.attr("class","drinkName")
+       crdImgEl.attr("class","cardImg")
+        
+        
+        crdNmEl.text(drinkNm);
+        crdImgEl.attr("src", tnUrl);
+        resEl.append(crdNmEl).append(crdImgEl);
     }
+
+
+
 
 });

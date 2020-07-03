@@ -117,6 +117,10 @@ function detailedInfo() {
     //create the html elements
     var infoEL = $("<div>");
     infoEL.attr("class", "infoBox");
+
+    var formatbox = $("<div>");
+    formatbox.attr("class", "formatbox");
+
     var nameEL = $("<h2>");
     nameEL.attr("class", "name");
     var instructionsEL = $("<p>");
@@ -160,11 +164,11 @@ function detailedInfo() {
     infoEL.append(nameEL);
     infoEL.append(imgEL);
     // infoEL.append(alcoholicEL);
-    infoEL.append(glassTitle);
-    infoEL.append(glassEL);
+    formatbox.append(glassTitle);
+    formatbox.append(glassEL);
     // infoEL.append(classificationEL);
     // infoEL.append(categoryEL); 
-    infoEL.append(ingredientsTitle);
+    formatbox.append(ingredientsTitle);
     
 
     //for ingredients and measurments its running in a for loop in the append section
@@ -172,19 +176,21 @@ function detailedInfo() {
         var ingredientsEL = $("<p>");
         ingredientsEL.attr("class", "ingredients");
         ingredientsEL.text(ingredients[i]);
-        infoEL.append(ingredientsEL);
+        formatbox.append(ingredientsEL);
     }
-    infoEL.append(measurementsTitle);
+    formatbox.append(measurementsTitle);
 
     for (i = 0; i < measurements.length; i++) {
         var measurementsEL = $("<p>");
         measurementsEL.attr("class", "measurements");
         measurementsEL.text(measurements[i]);
-        infoEL.append(measurementsEL);
+        formatbox.append(measurementsEL);
     }
+    
     $("body").append(infoEL);
-    infoEL.append(instructionsTitle);
-    infoEL.append(instructionsEL);
+    $("body").append(formatbox);
+    formatbox.append(instructionsTitle);
+    formatbox.append(instructionsEL);
 }
 
 
