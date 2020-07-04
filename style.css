@@ -1,3 +1,4 @@
+/* Body */
 body {
     background-color: #181b22;
 }
@@ -31,7 +32,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-/* Header Text and Jumbotron */
+/* Header Text and Jumbotrons */
 .headertext {
     color: whitesmoke;
     max-width: max-content;
@@ -39,16 +40,51 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.jumbotron {
-    height: 70vh;
-    overflow: none;
-}
-
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url("https://www.simplyrecipes.com/wp-content/uploads/2020/01/Old-Fashioned-Cocktail-LEAD-5.jpg");
     background-position: center;
     background-size: cover;
+}
+
+.jumbotron {
+    height: 40vh;
+    overflow: none;
+    margin: 2px;
+}
+
+.hero-image-beer {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url("https://p2d7x8x2.stackpathcdn.com/wordpress/wp-content/uploads/2020/03/iStock-1040303026.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+/* Form boxes */
+.form-control {
+    background-color: transparent;
+    border-color: transparent transparent whitesmoke;
+    width: 50vw;
+    color: whitesmoke;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+/* Search bar */
+.input-group {
+    background-color: transparent;
+    border-color: transparent transparent whitesmoke;
+    width: 75vw;
+}
+
+.bi-arrow-right-short {
+    color: whitesmoke;
+    border-color: transparent;
+}
+
+.btn {
+    background-color: transparent;
+    border-color: transparent;
 }
 
     /* Buttons animation and styling */
@@ -136,50 +172,27 @@ body {
       }
 
     /* Third Layer */
-
     .style {
         color: whitesmoke;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-size: 2rem;
     }
 
     /* Fourth Layer */
-
+    .contentBox {
+        padding-top: 5vh;
+        padding-bottom: 10vh;
+    }
     .beer {
         color: whitesmoke;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-size: 2rem;
     }
 
-/* Form boxes */
-.form-control {
-    background-color: transparent;
-    border-color: transparent transparent whitesmoke;
-    width: 50vw;
-    color: whitesmoke;
-    font-family: 'Open Sans', sans-serif;
-
-}
-
-/* Search bar */
-
-.input-group {
-    background-color: transparent;
-    border-color: transparent transparent whitesmoke;
-    width: 75vw;
-}
-
-.bi-arrow-right-short {
-    color: whitesmoke;
-    border-color: transparent;
-}
-
-.btn {
-    background-color: transparent;
-    border-color: transparent;
-}
 
 /* Card Section */
-
 .toResult {
 }
-
 
 .cardSection {
     max-width: 80vw;
@@ -203,44 +216,20 @@ body {
     width: 25%;
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  max-height: 15px;
-  background-color: black;
-  color: black;
-  text-align: center;
-}
-
-/* Start Details page_________________________________________*/
-
-
-/* Carousel______________________________________________*/
-
-
-
-.jumbotron {
-    height: 40vh;
-    overflow: none;
-    margin: 2px;
-}
-
-.hero-image-beer {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-    url("https://p2d7x8x2.stackpathcdn.com/wordpress/wp-content/uploads/2020/03/iStock-1040303026.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
-
 /* Image Box*/
 
 .infoBox {
     padding: 2% 1%;
     max-width: 35vw;
-    /* margin: 0 auto; */
+    opacity: 80%;
+    color: whitesmoke;
+    border-radius: 10px;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.infoBox-beer {
+    padding: 2% 1%;
+    max-width: 190vw;
     opacity: 80%;
     color: whitesmoke;
     border-radius: 10px;
@@ -249,14 +238,23 @@ body {
 
 .drinkImage {
     float: left;
-    width: 40vw;
-    /* height: 40vh; */
+    width: 35vw;
     object-fit: contain;
     padding: 20px 0px 40px 0px;
     margin: 0;
+    margin-left: 3vw;
 }
 
-/* Text area with ingredients and instructions*/
+.beer-img {
+    width: 35vw;
+    object-fit: contain;
+    padding: 10px 0px 30px 0px;
+    margin: 0;
+    margin-left: 3vw;
+}
+
+
+/* Single Drink text area with ingredients and instructions*/
 
 .formatbox {
     margin-left: 45vw;
@@ -296,9 +294,38 @@ body {
     font-size: 1.5rem;
 }
 
-
 .instsubtitle {
     margin-top: 5vh;
     color: whitesmoke;
     font-family: 'PT Sans Narrow', sans-serif;
 }
+
+.info {
+    margin-left: 3vw;
+}
+
+.abv {
+    margin-left: 3vw;
+    margin-bottom: 5px;
+}
+
+.ibu {
+    margin-left: 3vw;
+    margin-bottom: 5px;
+}
+
+
+/* Footer */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 15px;
+    background-color: lightgray;
+    color: lightgray;
+    text-align: center;
+    margin-top: 20px;
+  }
+
