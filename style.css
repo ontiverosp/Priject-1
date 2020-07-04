@@ -1,9 +1,10 @@
+/* Body */
 body {
-    background-color: rgb(24, 27, 34);
+    background-color: #181b22;
 }
 
 .Homepage {
-    background-color: rgb(27, 26, 26);
+    background-color: #181b22;
 }
 
 /* NavBar */
@@ -31,22 +32,30 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-/* Header Text and Jumbotron */
+/* Header Text and Jumbotrons */
 .headertext {
     color: whitesmoke;
-    max-width: min-content;
+    max-width: max-content;
     padding-bottom: 5px;
     font-family: 'Open Sans', sans-serif;
-}
-
-.jumbotron {
-    height: 70vh;
-    overflow: none;
 }
 
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url("https://www.simplyrecipes.com/wp-content/uploads/2020/01/Old-Fashioned-Cocktail-LEAD-5.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.jumbotron {
+    height: 40vh;
+    overflow: none;
+    margin: 2px;
+}
+
+.hero-image-beer {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url("https://p2d7x8x2.stackpathcdn.com/wordpress/wp-content/uploads/2020/03/iStock-1040303026.jpg");
     background-position: center;
     background-size: cover;
 }
@@ -62,7 +71,6 @@ body {
 }
 
 /* Search bar */
-
 .input-group {
     background-color: transparent;
     border-color: transparent transparent whitesmoke;
@@ -79,74 +87,149 @@ body {
     border-color: transparent;
 }
 
+    /* Buttons animation and styling */
+
+    /* First Layer */ 
+    .type {
+        background-color: transparent;
+        color: whitesmoke;
+        border-color: whitesmoke;
+        font-family: 'PT Sans Narrow', sans-serif;
+        background: transparent;
+        outline: none !important;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        border: none;
+        border-bottom: 2px solid whitesmoke;
+        /* border-left: 2px solid whitesmoke; */
+      }
+
+      .type:before,
+      .type:after {
+        position: absolute;
+        content: "";
+        right: 0;
+        top: 0;
+        background: whitesmoke;
+        transition: all 0.3s ease;
+      }
+      .type:before {
+        height: 0%;
+        width: 2px;
+      }
+      .type:after {
+        width: 0%;
+        height: 2px;
+      }
+      .type:hover:before {
+        height: 100%;
+      }
+      .type:hover:after {
+        width: 100%;
+      }
+
+    /* Second Layer */
+    .category {
+        background-color: transparent;
+        color: whitesmoke;
+        border-color: whitesmoke;
+        font-family: 'PT Sans Narrow', sans-serif;
+        background: transparent;
+        outline: none !important;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        border: none;
+        border-bottom: 2px solid whitesmoke;
+        /* border-left: 2px solid whitesmoke; */
+      }
+
+      .category:before,
+      .category:after {
+        position: absolute;
+        content: "";
+        right: 0;
+        top: 0;
+        background: whitesmoke;
+        transition: all 0.3s ease;
+      }
+      .category:before {
+        height: 0%;
+        width: 2px;
+      }
+      .category:after {
+        width: 0%;
+        height: 2px;
+      }
+      .category:hover:before {
+        height: 100%;
+      }
+      .category:hover:after {
+        width: 100%;
+      }
+
+    /* Third Layer */
+    .style {
+        color: whitesmoke;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-size: 2rem;
+    }
+
+    /* Fourth Layer */
+    .contentBox {
+        padding-top: 5vh;
+        padding-bottom: 10vh;
+    }
+    .beer {
+        color: whitesmoke;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-size: 2rem;
+    }
+
+
 /* Card Section */
+.toResult {
+}
 
 .cardSection {
-   position: relative;
-   /* display: inline-block; */
-   left: 10vw;
+    max-width: 80vw;
+    background-color: #181b22;
+    padding-left: 15vw;
 }
 
-.card {
+.cardImg {
+    width: 20vw;
+    padding-bottom: 10vh;
+    margin: 0;
+    border-radius: 10px;
+}
+
+.drinkName {
     color: whitesmoke;
-    background-color: transparent;
-    background-color: none;
-    padding-top: 20px;
-}
-
-.card-body {
-    text-align: start;
-    margin: auto;
-    padding: 50px
-}
-
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  max-height: 15px;
-  background-color: black;
-  color: black;
-  text-align: center;
-}
-
-/* Start Details page_________________________________________*/
-
-
-/* Carousel______________________________________________*/
-
-
-.d-block {
-    object-fit: contain;
-}
-
-.carousel-inner {
-    max-height: 70vh;
-}
-
-.carousel-item {
-    max-height: 70vh;
-}
-
-.input-text-append {
-    background-color: transparent;
-    color: whitesmoke;
-    border-color: transparent;
-}
-
-h5 {
     font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 1.5rem;
+    margin: 0;
+    padding-top: 3vh;
+    width: 25%;
 }
-
 
 /* Image Box*/
 
 .infoBox {
     padding: 2% 1%;
     max-width: 35vw;
-    /* margin: 0 auto; */
+    opacity: 80%;
+    color: whitesmoke;
+    border-radius: 10px;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.infoBox-beer {
+    padding: 2% 1%;
+    max-width: 190vw;
     opacity: 80%;
     color: whitesmoke;
     border-radius: 10px;
@@ -155,14 +238,23 @@ h5 {
 
 .drinkImage {
     float: left;
-    width: 40vw;
-    /* height: 40vh; */
+    width: 35vw;
     object-fit: contain;
     padding: 20px 0px 40px 0px;
     margin: 0;
+    margin-left: 3vw;
 }
 
-/* Text area with ingredients and instructions*/
+.beer-img {
+    width: 35vw;
+    object-fit: contain;
+    padding: 10px 0px 30px 0px;
+    margin: 0;
+    margin-left: 3vw;
+}
+
+
+/* Single Drink text area with ingredients and instructions*/
 
 .formatbox {
     margin-left: 45vw;
@@ -202,9 +294,38 @@ h5 {
     font-size: 1.5rem;
 }
 
-
 .instsubtitle {
     margin-top: 5vh;
     color: whitesmoke;
     font-family: 'PT Sans Narrow', sans-serif;
 }
+
+.info {
+    margin-left: 3vw;
+}
+
+.abv {
+    margin-left: 3vw;
+    margin-bottom: 5px;
+}
+
+.ibu {
+    margin-left: 3vw;
+    margin-bottom: 5px;
+}
+
+
+/* Footer */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 15px;
+    background-color: lightgray;
+    color: lightgray;
+    text-align: center;
+    margin-top: 20px;
+  }
+

@@ -295,7 +295,7 @@ $(document).ready(function () {
                 }
             })
             //append the content box to body or desired container************************************* 
-            fnlCont.append(contentEL);
+            resEl.append(contentEL);
             //listens for click and sends to beer list of chosen style
             $('.style').on('click', function (event) {
                 event.preventDefault();
@@ -323,7 +323,7 @@ $(document).ready(function () {
             if (response.totalResults == 0) {
                 var beerEL = $("<div>");
                 beerEL.attr("class", "beer");
-                beerEL.text('No results because im not paing for a full version of the API');
+                beerEL.text('No results because im not paying for a full version of the API');
                 contentEL.append(beerEL);
             }
             //cretes the html elements and appends to the content
@@ -452,14 +452,9 @@ $(document).ready(function () {
             nameEL.attr("class", "name");
             var instructionsEL = $("<p>");
             instructionsEL.attr("class", "instructions");
-            // var alcoholicEL = $("<p>");
-            // alcoholicEL.attr("class", "alcoholic");
             var glassEL = $("<p>");
             glassEL.attr("class", "glass");
-            // var classificationEL = $("<p>");
-            // classificationEL.attr("class", "classification");
-            // var categoryEL = $("<p>");
-            // categoryEL.attr("class", "category");
+
             var imgEL = $("<img>");
             var instructionsTitle = $("<h3>");
             instructionsTitle.attr("class", "instsubtitle");
@@ -475,10 +470,7 @@ $(document).ready(function () {
             //add content to element
             nameEL.text(name);
             instructionsEL.text(instructions);
-            // alcoholicEL.text(alcoholic);
             glassEL.text(glass);
-            // classificationEL.text(classification);
-            // categoryEL.text(category);
             imgEL.attr("src", img);
             imgEL.attr("class", "drinkImage");
             instructionsTitle.text("Instructions");
@@ -490,11 +482,8 @@ $(document).ready(function () {
             //append to infoBox
             infoEL.append(nameEL);
             infoEL.append(imgEL);
-            // infoEL.append(alcoholicEL);
             formatbox.append(glassTitle);
             formatbox.append(glassEL);
-            // infoEL.append(classificationEL);
-            // infoEL.append(categoryEL); 
             formatbox.append(ingredientsTitle);
 
 
@@ -548,7 +537,7 @@ $(document).ready(function () {
 
             //create HTML elements
             var infoEl = $("<div>");
-            infoEl.attr("class", "infoBox");
+            infoEl.attr("class", "infoBox-beer");
             var nameEl = $("<h2>");
             nameEl.attr("class", "name");
             var descriptionEl = $("<p>");
@@ -561,7 +550,7 @@ $(document).ready(function () {
             ibuEl.attr("class", "info");
             ibuEl.attr("class", "ibu");
             var imgEl = $("<img>");
-            imgEl.attr("class", "img");
+            imgEl.attr("class", "beer-img");
             //add content to elements
             nameEl.text(name);
             descriptionEl.text(description);
@@ -577,8 +566,6 @@ $(document).ready(function () {
             //append info box to body 
             $('body').append(infoEl);
         }
-
-
 
         function infoType() {
             var check = JSON.parse(localStorage.getItem('info'));
