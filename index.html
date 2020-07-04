@@ -37,8 +37,8 @@
     </nav>
 
     <!--Jumbotron-->
-    <section class="jumbotron hero-image">
-      <h1 class="display-3 headertext">Find your perfect beverage</h1>
+      <section class="jumbotron hero-image"> 
+        <h1 class="display-4 headertext">Find your perfect cocktail</h1>
 
       <section class="form-group">
         <label for="IngredientSelect" class="IngredientSelect">Select Ingredient</label>
@@ -54,6 +54,37 @@
         </select>
       </section>
 
+      <!--Search Bar-->
+        <SearchBar class="input-group mb-3">
+          <input type="text" class="form-control" id="searchBar" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <svg class="btn btn-primary btn-md" href="#" type="submit" width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.793 8 8.146 5.354a.5.5 0 0 1 0-.708z"/>
+              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5H11a.5.5 0 0 1 0 1H4.5A.5.5 0 0 1 4 8z"/>
+          </svg>
+        </SearchBar>
+      </section>
+
+      <section class="jumbotron hero-image-beer"> 
+          <h1 class="display-4 headertext">Find your perfect beer</h1>
+
+          <section class="results"></section>
+
+          
+            
+  
+          <!-- <section class="form-group">
+              <label for="IngredientSelect" class="IngredientSelect">Select Ingredient</label>
+              <select class="form-control" id="DrinkSelector">
+                <option>Any</option>
+                <option>Whiskey</option>
+                <option>Vodka</option>
+                <option>Gin</option>
+                <option>Tequila</option>
+                <option>Scotch</option>
+                <option>Beer</option>
+                <option>Wine</option>
+            </select> -->
+          </section>
 
       <!-- Searchbar -->
       <SearchBar class="input-group mb-3">
@@ -70,7 +101,7 @@
 
     <!-- Results Card body-->
     
-    <section class="results"></section>
+    
     <section class="cardSection"></section>
     <div class="footer">
       <p></p>

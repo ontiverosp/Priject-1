@@ -62,30 +62,35 @@ function clearTerms() {
 }
 
 //sends you back to the home page and runs new search
-$("#searchIngredient").on("click", function () {
-    var term = $("#termIngredient").val();
-    console.log(term);
-    window.location.href = "../index.html";
-    clearTerms();
-    localStorage.setItem("term", term);
-    localStorage.setItem("searchFlag", true);
-});
-$("#searchAlcohol").on("click", function () {
+// $("#searchIngredient").on("click", function () {
+//     var term = $("#termIngredient").val();
+//     console.log(term);
+//     window.location.href = "../index.html";
+//     clearTerms();
+//     localStorage.setItem("term", term);
+//     localStorage.setItem("searchFlag", true);
+// });
+
+$("searchAlcohol").keypress(function(event)
+{
+    console.log("enter pressed");
+    if (event.originalEvent.which === 13) {
     var term = $("#termAlcohol").val();
+    localStorage.setItem("term", term);
+    localStorage.setItem("searchFlag", true);
     console.log(term);
     window.location.href = "../index.html";
     clearTerms();
-    localStorage.setItem("term", term);
-    localStorage.setItem("searchFlag", true);
+    }
 });
-$("#searchSomething").on("click", function () {
-    var term = $("#termSomething").val();
-    console.log(term);
-    window.location.href = "../index.html";
-    clearTerms();
-    localStorage.setItem("term", term);
-    localStorage.setItem("searchFlag", true);
-});
+// $("#searchSomething").on("click", function () {
+//     var term = $("#termSomething").val();
+//     console.log(term);
+//     window.location.href = "../index.html";
+//     clearTerms();
+//     localStorage.setItem("term", term);
+//     localStorage.setItem("searchFlag", true);
+// });
 
 //displays the info.
 function detailedInfo() {
@@ -123,14 +128,8 @@ function detailedInfo() {
     nameEL.attr("class", "name");
     var instructionsEL = $("<p>");
     instructionsEL.attr("class", "instructions");
-    // var alcoholicEL = $("<p>");
-    // alcoholicEL.attr("class", "alcoholic");
     var glassEL = $("<p>");
     glassEL.attr("class", "glass");
-    // var classificationEL = $("<p>");
-    // classificationEL.attr("class", "classification");
-    // var categoryEL = $("<p>");
-    // categoryEL.attr("class", "category");
     var imgEL = $("<img>");
     var instructionsTitle = $("<h3>");
     instructionsTitle.attr("class", "instsubtitle");
@@ -141,15 +140,10 @@ function detailedInfo() {
     var glassTitle = $("<h6>");
     glassTitle.attr("class", "subtitle");
 
-
-
     //add content to element
     nameEL.text(name);
     instructionsEL.text(instructions);
-    // alcoholicEL.text(alcoholic);
     glassEL.text(glass);
-    // classificationEL.text(classification);
-    // categoryEL.text(category);
     imgEL.attr("src", img);
     imgEL.attr("class", "drinkImage");
     instructionsTitle.text("Instructions");
@@ -161,11 +155,8 @@ function detailedInfo() {
     //append to infoBox
     infoEL.append(nameEL);
     infoEL.append(imgEL);
-    // infoEL.append(alcoholicEL);
     formatbox.append(glassTitle);
     formatbox.append(glassEL);
-    // infoEL.append(classificationEL);
-    // infoEL.append(categoryEL); 
     formatbox.append(ingredientsTitle);
 
 

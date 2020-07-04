@@ -295,7 +295,7 @@ $(document).ready(function () {
                 }
             })
             //append the content box to body or desired container************************************* 
-            fnlCont.append(contentEL);
+            resEl.append(contentEL);
             //listens for click and sends to beer list of chosen style
             $('.style').on('click', function (event) {
                 event.preventDefault();
@@ -323,7 +323,7 @@ $(document).ready(function () {
             if (response.totalResults == 0) {
                 var beerEL = $("<div>");
                 beerEL.attr("class", "beer");
-                beerEL.text('No results because im not paing for a full version of the API');
+                beerEL.text('No results because im not paying for a full version of the API');
                 contentEL.append(beerEL);
             }
             //cretes the html elements and appends to the content
