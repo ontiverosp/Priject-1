@@ -8,6 +8,15 @@ $(document).ready(function () {
     var thumb;
     var drinkNm;
     var fnlCont = $(".results");
+    var selAlcEl = $("#DrinkSelector");
+    var inputEl = $("input");
+    var AlcUrl;
+    var searchInput = String;
+    var searchInput;
+    var ingString;
+    var selAlc;
+    var searchUrl;
+    
 
     console.log(resEl)
 
@@ -39,33 +48,33 @@ $(document).ready(function () {
 
     });
 
+    selAlcEl.change(function (event) {
+        selAlc = $("#DrinkSelector option:selected").text();
+        AlcUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + selAlc;
+        
+        console.log(AlcUrl)
+
+    })
+
     inputEl.keypress(function (event) {
         if (event.originalEvent.keyCode === 13) {
-            // console.log(this)
             searchInput = $(this).val();
-            // console.log(searchInput)
-            searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchInput;
-            // console.log(searchUrl)
+            ingString = searchInput.replace(/\s/g, '');
+            console.log(ingString);
+            console.log(typeof ingString);
+            searchUrl = AlcUrl + "," + ingString;
+            console.log(searchUrl);
             search()
-            // optionsEL.empty()
-            optionsSecondaryEL.empty()
-            contentEL.empty()
-
         }
-    });
-
+        });
+    
     function search() {
         $.ajax({
             url: searchUrl,
             method: "GET"
         }).then(function (response) {
             var cocktails = response.drinks;
-            // console.log(cocktails);
             resEl.empty();
-            if (cocktails == null) {
-                // console.log("No results found for " + searchInput + ".")
-            }
-
             for (i = 0; i < cocktails.length; i++) {
                 var cocktail = cocktails[i];
                 // console.log(cocktail.strDrink);
@@ -77,14 +86,9 @@ $(document).ready(function () {
                 genRes(cocktail.idDrink)
 
             }
-            toResult(cocktails);
-        })
+        });
     }
-    // function genRes(){
-    //     var tnEl = $("<img>");        
-    //     thumb = tnEl.attr("src",tnUrl);        
-    //     resEl.append(thumb)
-    // }
+
 
     function genRes(id) {
         // var ingredient = [];
