@@ -16,42 +16,42 @@ $(document).ready(function () {
     var ingString;
     var selAlc;
     var searchUrl;
-    
+    var cocktails;
+
 
     console.log(resEl)
 
-    function startLoaded() {
-        var searchFlag = localStorage.getItem('searchFlag');
-        var term = localStorage.getItem('term');
+    // function startLoaded() {
+    //     var searchFlag = localStorage.getItem('searchFlag');
+    //     var term = localStorage.getItem('term');
 
 
-        if (searchFlag == 'true') {
-            searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + term;
-            search()
-            console.log(term);
-        }
+    //     if (searchFlag == 'true') {
+    //         searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + term;
+    //         search()
+    //         console.log(term);
+    //     }
 
 
-        localStorage.setItem("searchFlag", false);
-    }
+    //     localStorage.setItem("searchFlag", false);
+    // }
 
 
     inputclick.on('click', function (event) {
-        event.preventDefault();
-        // console.log(this)
         searchInput = $(this).val();
-        // console.log(searchInput)
-        searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchInput;
-        // console.log(searchUrl)
+        ingString = searchInput.replace(/\s/g, '');
+        console.log(ingString);
+        console.log(typeof ingString);
+        searchUrl = AlcUrl + "," + ingString;
+        console.log(searchUrl);
+        $(".cardSection").empty();
         search()
-
-
     });
 
     selAlcEl.change(function (event) {
         selAlc = $("#DrinkSelector option:selected").text();
         AlcUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + selAlc;
-        
+
         console.log(AlcUrl)
 
     })
@@ -64,16 +64,19 @@ $(document).ready(function () {
             console.log(typeof ingString);
             searchUrl = AlcUrl + "," + ingString;
             console.log(searchUrl);
+            $(".cardSection").empty();
             search()
         }
-        });
-    
+    });
+
     function search() {
         $.ajax({
             url: searchUrl,
             method: "GET"
         }).then(function (response) {
-            var cocktails = response.drinks;
+            console.log(response)
+            cocktails = response.drinks;
+            console.log(cocktails + '<<<<')
             resEl.empty();
             for (i = 0; i < cocktails.length; i++) {
                 var cocktail = cocktails[i];
@@ -101,6 +104,8 @@ $(document).ready(function () {
         crdNmEl.text(drinkNm);
         crdImgEl.attr("src", tnUrl);
         resEl.append(crdNmEl).append(crdImgEl);
+        console.log(cocktails)
+        toResult(cocktails);
 
 
     }
@@ -116,6 +121,7 @@ $(document).ready(function () {
                     clearInfo()
 
                     localStorage.setItem("info", JSON.stringify(element));
+                    $(".cardSection").empty()
                     finalResult();
                 }
             })
@@ -190,6 +196,7 @@ $(document).ready(function () {
         $('.type').on('click', function (event) {
             event.preventDefault();
             resEl.empty();
+            $(".cardSection").empty()
             var typeChosen = event.target.id;
             var categoryID = [];
 
@@ -507,8 +514,8 @@ $(document).ready(function () {
                 formatbox.append(measurementsEL);
             }
 
-            $("body").append(infoEL);
-            $("body").append(formatbox);
+            $(".cardSection").append(infoEL);
+            $(".cardSection").append(formatbox);
             formatbox.append(instructionsTitle);
             formatbox.append(instructionsEL);
         }
@@ -568,7 +575,8 @@ $(document).ready(function () {
             infoEl.append(imgEl);
             infoEl.append(descriptionEl);
             //append info box to body 
-            $('body').append(infoEl);
+            $(".cardSection").empty();
+            $('.cardSection').append(infoEl);
         }
 
         function infoType() {
@@ -593,6 +601,6 @@ $(document).ready(function () {
 
 
     searchCreate();
-    startLoaded();
+    // startLoaded();
 
 });
