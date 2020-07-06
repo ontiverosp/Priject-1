@@ -294,6 +294,10 @@ $(document).ready(function () {
             //the space is shared between the style list and beer list
             contentEL.empty();
             //goes through the styles and selects the ones that match the chosen style
+            var bEL = $("<h3>");
+                bEL.attr("class", "beer");
+                bEL.text('Style List');
+                contentEL.append(bEL);
             styles.forEach((element) => {
                 var num = element.category.id;
                 if (num == chosenStyle) {
@@ -341,6 +345,10 @@ $(document).ready(function () {
             //note. (no need to append the content to the body because
             //the function that calls this function already did)
             else {
+                var bEL = $("<h3>");
+                bEL.attr("class", "beer");
+                bEL.text('Beer List');
+                contentEL.append(bEL);
                 response.data.forEach((element) => {
                     var beerEL = $("<div>");
                     beerEL.attr("id", element.id);
