@@ -8,49 +8,64 @@ $(document).ready(function () {
     var thumb;
     var drinkNm;
     var fnlCont = $(".results");
+    var selAlcEl = $("#DrinkSelector");
+    var inputEl = $("input");
+    var AlcUrl;
+    var searchInput = String;
+    var searchInput;
+    var ingString;
+    var selAlc;
+    var searchUrl;
+    var cocktails;
+
 
     console.log(resEl)
 
-    function startLoaded() {
-        var searchFlag = localStorage.getItem('searchFlag');
-        var term = localStorage.getItem('term');
+    // function startLoaded() {
+    //     var searchFlag = localStorage.getItem('searchFlag');
+    //     var term = localStorage.getItem('term');
 
 
-        if (searchFlag == 'true') {
-            searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + term;
-            search()
-            console.log(term);
-        }
+    //     if (searchFlag == 'true') {
+    //         searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + term;
+    //         search()
+    //         console.log(term);
+    //     }
 
 
-        localStorage.setItem("searchFlag", false);
-    }
+    //     localStorage.setItem("searchFlag", false);
+    // }
 
 
     inputclick.on('click', function (event) {
-        event.preventDefault();
-        // console.log(this)
         searchInput = $(this).val();
-        // console.log(searchInput)
-        searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchInput;
-        // console.log(searchUrl)
+        ingString = searchInput.replace(/\s/g, '');
+        console.log(ingString);
+        console.log(typeof ingString);
+        searchUrl = AlcUrl + "," + ingString;
+        console.log(searchUrl);
+        $(".cardSection").empty();
         search()
-
-
     });
+
+    selAlcEl.change(function (event) {
+        selAlc = $("#DrinkSelector option:selected").text();
+        AlcUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + selAlc;
+
+        console.log(AlcUrl)
+
+    })
 
     inputEl.keypress(function (event) {
         if (event.originalEvent.keyCode === 13) {
-            // console.log(this)
             searchInput = $(this).val();
-            // console.log(searchInput)
-            searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchInput;
-            // console.log(searchUrl)
+            ingString = searchInput.replace(/\s/g, '');
+            console.log(ingString);
+            console.log(typeof ingString);
+            searchUrl = AlcUrl + "," + ingString;
+            console.log(searchUrl);
+            $(".cardSection").empty();
             search()
-            // optionsEL.empty()
-            optionsSecondaryEL.empty()
-            contentEL.empty()
-
         }
     });
 
@@ -59,13 +74,10 @@ $(document).ready(function () {
             url: searchUrl,
             method: "GET"
         }).then(function (response) {
-            var cocktails = response.drinks;
-            // console.log(cocktails);
+            console.log(response)
+            cocktails = response.drinks;
+            console.log(cocktails + '<<<<')
             resEl.empty();
-            if (cocktails == null) {
-                // console.log("No results found for " + searchInput + ".")
-            }
-
             for (i = 0; i < cocktails.length; i++) {
                 var cocktail = cocktails[i];
                 // console.log(cocktail.strDrink);
@@ -77,14 +89,9 @@ $(document).ready(function () {
                 genRes(cocktail.idDrink)
 
             }
-            toResult(cocktails);
-        })
+        });
     }
-    // function genRes(){
-    //     var tnEl = $("<img>");        
-    //     thumb = tnEl.attr("src",tnUrl);        
-    //     resEl.append(thumb)
-    // }
+
 
     function genRes(id) {
         // var ingredient = [];
@@ -97,6 +104,8 @@ $(document).ready(function () {
         crdNmEl.text(drinkNm);
         crdImgEl.attr("src", tnUrl);
         resEl.append(crdNmEl).append(crdImgEl);
+        console.log(cocktails)
+        toResult(cocktails);
 
 
     }
@@ -112,6 +121,7 @@ $(document).ready(function () {
                     clearInfo()
 
                     localStorage.setItem("info", JSON.stringify(element));
+                    $(".cardSection").empty()
                     finalResult();
                 }
             })
@@ -186,6 +196,7 @@ $(document).ready(function () {
         $('.type').on('click', function (event) {
             event.preventDefault();
             resEl.empty();
+            $(".cardSection").empty()
             var typeChosen = event.target.id;
             var categoryID = [];
 
@@ -503,8 +514,8 @@ $(document).ready(function () {
                 formatbox.append(measurementsEL);
             }
 
-            $("body").append(infoEL);
-            $("body").append(formatbox);
+            $(".cardSection").append(infoEL);
+            $(".cardSection").append(formatbox);
             formatbox.append(instructionsTitle);
             formatbox.append(instructionsEL);
         }
@@ -564,7 +575,8 @@ $(document).ready(function () {
             infoEl.append(imgEl);
             infoEl.append(descriptionEl);
             //append info box to body 
-            $('body').append(infoEl);
+            $(".cardSection").empty();
+            $('.cardSection').append(infoEl);
         }
 
         function infoType() {
@@ -589,6 +601,6 @@ $(document).ready(function () {
 
 
     searchCreate();
-    startLoaded();
+    // startLoaded();
 
 });
