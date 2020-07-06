@@ -294,6 +294,10 @@ $(document).ready(function () {
             //the space is shared between the style list and beer list
             contentEL.empty();
             //goes through the styles and selects the ones that match the chosen style
+            var bEL = $("<h3>");
+            bEL.attr("class", "beer");
+            bEL.text('Style List');
+            contentEL.append(bEL);
             styles.forEach((element) => {
                 var num = element.category.id;
                 if (num == chosenStyle) {
@@ -341,6 +345,10 @@ $(document).ready(function () {
             //note. (no need to append the content to the body because
             //the function that calls this function already did)
             else {
+                var bEL = $("<h3>");
+                bEL.attr("class", "beer");
+                bEL.text('Beer List');
+                contentEL.append(bEL);
                 response.data.forEach((element) => {
                     var beerEL = $("<div>");
                     beerEL.attr("id", element.id);
@@ -431,94 +439,108 @@ $(document).ready(function () {
         function detailedInfo() {
             //Get the info I need from local storage
             var info = JSON.parse(localStorage.getItem('info'));
-            var name = info.strDrink;
-            var instructions = info.strInstructions;
-            var alcoholic = info.strAlcoholic;
-            var glass = info.strGlass;
-            var img = info.strDrinkThumb;
-            var classification = info.strIBA;
-            var category = info.strCategory;
-            var ingredients = [];
-            var measurements = [];
-            for (i = 1; i < 16; i++) {
-                var ingredient = eval('info.strIngredient' + i);
-                if (ingredient != null) {
-                    ingredients.push(ingredient);
+            var cocktailId = info.idDrink;
+            queryURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + cocktailId;
+            $.ajax({
+                url: queryURL,
+                method: "GET",
+            }).then(function (response) {
+                info = response.drinks[0];
+                console.log(info);
+                var name = info.strDrink;
+                var instructions = info.strInstructions;
+                var alcoholic = info.strAlcoholic;
+                var glass = info.strGlass;
+                var img = info.strDrinkThumb;
+                var classification = info.strIBA;
+                var category = info.strCategory;
+                var ingredients = [];
+                var measurements = [];
+                for (i = 1; i < 16; i++) {
+                    var ingredient = eval('info.strIngredient' + i);
+                    if (ingredient != null) {
+                        ingredients.push(ingredient);
+                    }
                 }
-            }
-            for (i = 1; i < 16; i++) {
-                var measurement = eval('info.strMeasure' + i);
-                if (measurement != null) {
-                    measurements.push(measurement);
+                for (i = 1; i < 16; i++) {
+                    var measurement = eval('info.strMeasure' + i);
+                    if (measurement != null) {
+                        measurements.push(measurement);
+                    }
                 }
-            }
-            //create the html elements
-            var infoEL = $("<div>");
-            infoEL.attr("class", "infoBox");
+                //create the html elements
+                var infoEL = $("<div>");
+                infoEL.attr("class", "infoBox");
 
-            var formatbox = $("<div>");
-            formatbox.attr("class", "formatbox");
+                var formatbox = $("<div>");
+                formatbox.attr("class", "formatbox");
 
-            var nameEL = $("<h2>");
-            nameEL.attr("class", "name");
-            var instructionsEL = $("<p>");
-            instructionsEL.attr("class", "instructions");
-            var glassEL = $("<p>");
-            glassEL.attr("class", "glass");
+                var nameEL = $("<h2>");
+                nameEL.attr("class", "name");
+                var instructionsEL = $("<p>");
+                instructionsEL.attr("class", "instructions");
+                var glassEL = $("<p>");
+                glassEL.attr("class", "glass");
 
-            var imgEL = $("<img>");
-            var instructionsTitle = $("<h3>");
-            instructionsTitle.attr("class", "instsubtitle");
-            var ingredientsTitle = $("<h6>");
-            ingredientsTitle.attr("class", "subtitle");
-            var measurementsTitle = $("<h6>");
-            measurementsTitle.attr("class", "subtitle");
-            var glassTitle = $("<h6>");
-            glassTitle.attr("class", "subtitle");
-
+                var imgEL = $("<img>");
+                var instructionsTitle = $("<h3>");
+                instructionsTitle.attr("class", "instsubtitle");
+                var ingredientsTitle = $("<h6>");
+                ingredientsTitle.attr("class", "subtitle");
+                var measurementsTitle = $("<h6>");
+                measurementsTitle.attr("class", "subtitle");
+                var glassTitle = $("<h6>");
+                glassTitle.attr("class", "subtitle");
 
 
-            //add content to element
-            nameEL.text(name);
-            instructionsEL.text(instructions);
-            glassEL.text(glass);
-            imgEL.attr("src", img);
-            imgEL.attr("class", "drinkImage");
-            instructionsTitle.text("Instructions");
-            ingredientsTitle.text("Ingredients");
-            measurementsTitle.text("Measurements");
-            glassTitle.text("Glass to use");
+
+                //add content to element
+                nameEL.text(name);
+                instructionsEL.text(instructions);
+                glassEL.text(glass);
+                imgEL.attr("src", img);
+                imgEL.attr("class", "drinkImage");
+                instructionsTitle.text("Instructions");
+                ingredientsTitle.text("Ingredients");
+                measurementsTitle.text("Measurements");
+                glassTitle.text("Glass to use");
 
 
-            //append to infoBox
-            infoEL.append(nameEL);
-            infoEL.append(imgEL);
-            formatbox.append(glassTitle);
-            formatbox.append(glassEL);
-            formatbox.append(ingredientsTitle);
+                //append to infoBox
+                infoEL.append(nameEL);
+                infoEL.append(imgEL);
+                formatbox.append(glassTitle);
+                formatbox.append(glassEL);
+                formatbox.append(ingredientsTitle);
 
 
-            //for ingredients and measurments its running in a for loop in the append section
-            for (i = 0; i < ingredients.length; i++) {
-                var ingredientsEL = $("<p>");
-                ingredientsEL.attr("class", "ingredients");
-                ingredientsEL.text(ingredients[i]);
-                formatbox.append(ingredientsEL);
-            }
-            formatbox.append(measurementsTitle);
+                //for ingredients and measurments its running in a for loop in the append section
+                for (i = 0; i < ingredients.length; i++) {
+                    var ingredientsEL = $("<p>");
+                    ingredientsEL.attr("class", "ingredients");
+                    ingredientsEL.text(ingredients[i]);
+                    formatbox.append(ingredientsEL);
+                }
+                formatbox.append(measurementsTitle);
 
-            for (i = 0; i < measurements.length; i++) {
-                var measurementsEL = $("<p>");
-                measurementsEL.attr("class", "measurements");
-                measurementsEL.text(measurements[i]);
-                formatbox.append(measurementsEL);
-            }
+                for (i = 0; i < measurements.length; i++) {
+                    var measurementsEL = $("<p>");
+                    measurementsEL.attr("class", "measurements");
+                    measurementsEL.text(measurements[i]);
+                    formatbox.append(measurementsEL);
+                }
 
-            $(".cardSection").append(infoEL);
-            $(".cardSection").append(formatbox);
-            formatbox.append(instructionsTitle);
-            formatbox.append(instructionsEL);
+                $(".cardSection").append(infoEL);
+                $(".cardSection").append(formatbox);
+                formatbox.append(instructionsTitle);
+                formatbox.append(instructionsEL);
+
+            });
         }
+
+
+
+
 
         function beerInfo() {
             //Get the info needed from local storage
